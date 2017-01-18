@@ -1,0 +1,61 @@
+.login{
+    background-color: #666 !important;
+}
+
+.logo {
+    margin: 0 auto;
+    margin-top: 60px;
+    text-align: center;
+    padding: 15px;
+}
+
+.login-content{
+    background: url("../img/bg-white-lock.png");
+    width: 360px;
+    margin: 0 auto;
+    padding: 20px 30px 15px 30px;
+}
+
+.login-content .login-form {
+	padding: 0px;
+	margin: 0px;
+}
+
+.login-content .form-title {
+    color: #eee;
+    margin-bottom: 25px;
+}
+
+.login-content .form-action{
+    background-color: transparent;
+    clear: both;
+    padding: 0px 30px 25px 30px;
+}
+
+.login-content .form-action .checkbox{
+    display: inline-block;
+
+}
+
+.login-content .form-action .btn {
+    margin-top: 3px;
+}
+
+@media (max-width: 480px) {
+  /***
+  Login page
+  ***/
+  .login .logo {
+    margin-top:10px;
+  }
+
+  .login-content {
+    padding: 30px;
+    width: 222px;
+  }
+
+  .login .login-content h3 {
+    font-size: 22px;
+  }
+
+}

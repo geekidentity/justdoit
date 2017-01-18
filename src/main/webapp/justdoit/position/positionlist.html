@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../assets/plugins/bootstrap/css/bootstrap.css">
+    <link href="../../assets/plugins/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+<div class="container" ng-app="DepartmentModule">
+    <table class="table" ng-controller="DepartmentController">
+        <tr>
+            <th>#</th>
+            <th>职位名称</th>
+            <th>所属部门编号</th>
+        </tr>
+        <tr ng-repeat="p in list" id="position">
+            <td ng-bind="p.id"></td>
+            <td ng-bind="p.name"></td>
+            <td ng-bind="p.department"></td>
+        </tr>
+    </table>
+</div>
+
+<script src="../../assets/plugins/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="../../assets/scripts/justdoit/auth.js"></script>
+<script src="../../assets/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
+<script src="../../assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../assets/plugins/angular/angular.min.js"></script>
+<script src="../../assets/plugins/angular/angular-resource.min.js"></script>
+<script src="../../assets/scripts/justdoit/employee.js"></script>
+<script src="../../assets/plugins/formTojson.js"></script>
+<script>
+    var EmployeeModule = angular.module('DepartmentModule',[])
+    EmployeeModule.controller("DepartmentController",function($scope, $http){
+        $http({
+            method:"get",
+            url:base+"/positions/list?" + parent.access_token,
+        }).success(function(data){
+            $scope.list = data;
+        })
+    })
+
+    $("#position").click(function(p){
+        alert(p)
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+#baiduMap {
+    position: absolute!important; z-index: 0; width: 100%; height: 100%; overflow: hidden; -webkit-user-select: none; -webkit-user-drag: element;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../assets/plugins/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<div class="container">
+    <table class="table table-hover" id="table">
+
+        <tr>
+            <th>#</th>
+            <th>工号</th>
+            <th>姓名</th>
+            <th>所属部门</th>
+            <th>最后登录</th>
+        </tr>
+    </table>
+</div>
+
+<script src="../../assets/plugins/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="../../assets/scripts/justdoit/auth.js"></script>
+<script src="../../assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../assets/plugins/angular/angular.min.js"></script>
+<script>
+    var url = "http://211.87.147.138:8081/web/employees?" + parent.access_token+"&name=";
+    $.get(url, function(data){
+        var table = $("#table");
+        for(var i = 0;i < data.length; i++) {
+            var id = document.createElement("td");
+            var a = document.createElement("a");
+            a.setAttribute("href", "updateemployee.html?id="+data[i].id);
+            a.innerHTML = data[i].id;
+            var eno = document.createElement("td");
+            var name = document.createElement("td");
+            var department = document.createElement("td");
+            var lastLogin = document.createElement("td");
+            id.appendChild(a);
+            eno.innerHTML = data[i].eno
+            name.innerHTML = data[i].name;
+            department.innerHTML = data[i].department.name;
+            lastLogin.innerHTML = data[i].lastLogin;
+
+            var tr = document.createElement("tr");
+            tr.appendChild(id);
+            tr.appendChild(eno);
+            tr.appendChild(name);
+            tr.appendChild(department);
+            tr.appendChild(lastLogin);
+            table.append(tr);
+
+            /*$("tr").click(function(){
+                alert(eno.innerHTML)
+                window.location.href = "employee.html?eno="+ data[i].eno.valueOf();//document.getElementsByTagName("eno").value;
+            })*/
+        }
+    })
+
+</script>
+</body>
+</html>
